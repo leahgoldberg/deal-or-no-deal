@@ -114,7 +114,7 @@ function Game() {
 	}
 }
 
-//helper function to display the dollar values on board in a more readable way (made in challenge earlier this week!)
+//helper function to nicely display the dollar values 
 function separateComma(number) {
    var reverseNum = String(number).split('').reverse(),
    		chunks=[];  
