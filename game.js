@@ -1,10 +1,10 @@
 var banker = {
 	offerDeal: function(cases,turn) {
 		var sum = 0; 
-		for (var i=0; i<cases.length; i++) {
+		for (var i in cases) {
 			sum+=cases[i].dollarValue;
 		}
-		var average = sum/(cases.length-1);
+		var average = sum/(cases.length);
 		//offer increases based on how far into the game the player is, as well as average $ amount left in play
 		var offer = Math.floor((average * turn)/10);
 		return offer;
@@ -29,7 +29,7 @@ function Cases() {
 	};
 	this.findCase = function(num) {
 		var foundAtIndex = "";
-		for (var i=0; i<this.casesInPlay.length; i++) {
+		for (var i in this.casesInPlay) {
 			if (this.casesInPlay[i].number == num) {
 				foundAtIndex = i;
 			}
@@ -45,14 +45,14 @@ function Cases() {
 	};
 	this.displayValues = function() {
 		console.log("The remaining values are:");
-		for (var i=0; i< this.casesInPlay.length; i++) {
+		for (var i in this.casesInPlay) {
 			console.log(separateComma(this.casesInPlay[i].dollarValue));
 		}
 		return "";
 	};
 	this.displayNumbers = function() {
 		console.log("The cases remaining in play are:");
-		for (var i=0; i< this.casesInPlay.length; i++) {
+		for (var i in this.casesInPlay) {
 		//don't display case number of case that's held by the player	
 			if (this.casesInPlay[i].number!=this.caseHeld.number) {
 				console.log(this.casesInPlay[i].number);
